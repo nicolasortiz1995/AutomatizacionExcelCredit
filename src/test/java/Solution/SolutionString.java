@@ -18,7 +18,6 @@ public class SolutionString {
 			}
 			
 		}
-		
 		System.out.println("Numero enteros: " + n);
 		System.out.println(enterosList);
 		
