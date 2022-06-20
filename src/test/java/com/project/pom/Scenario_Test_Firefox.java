@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class Scenario_Test {
+public class Scenario_Test_Firefox {
 	
 	private WebDriver driver;
 	Scenario scenario;
@@ -15,10 +15,10 @@ public class Scenario_Test {
 	@Before
 	public void setUp() throws Exception {
 		scenario = new Scenario(driver);
-		driver = scenario.chromeDriverConnection();
+		driver = scenario.chromeDriverConnectionFirefox();
 		driver.manage().window().maximize();
-		scenario.visit("http://automationpractice.com/index.php");
-		System.out.println("Opening: Crhome");
+		scenario.visit("http://automationpractice.com/index.php");		
+		System.out.println("Opening: FireFox");
 	}
 
 	@After
