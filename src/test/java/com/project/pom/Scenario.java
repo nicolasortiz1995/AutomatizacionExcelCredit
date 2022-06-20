@@ -4,37 +4,32 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Scenario extends Base{
-	
+	//Selectors
 	By addToCartLocator = By.className("ajax_add_to_cart_button");
-	By continueShoppingLocator = By.className("continue");
+	By continueShoppingLocator = By.className("icon-chevron-left");
 	By searchBox = By.name("submit_search");
-	//T-SHIRTS
-	String tShirtsUrl = "http://automationpractice.com/index.php?id_category=5&controller=category";
-	//BLOUSES
-	String blousesUrl = "http://automationpractice.com/index.php?id_category=7&controller=category";
-	//CASUAL DRESSES
-	String casualDressesUlr = "http://automationpractice.com/index.php?id_category=9&controller=category";
-	//EVENING DRESSES
-	String eveningDressesUrl = "http://automationpractice.com/index.php?id_category=10&controller=category";
-	//SUMMER DRESSES
-	String summerDressesUrl = "http://automationpractice.com/index.php?id_category=11&controller=category";
-	
-	By addToCartLocator2  = By.cssSelector("[data-id-product='7']");
+	By addToCartLocator2  = By.xpath("//a[@data-id-product='7']");
 	By itemToSelect  = By.className("first-item-of-mobile-line");
 	By itemToSelect2  = By.className("last-item-of-mobile-line");
-	
-	String cartUrl = "http://automationpractice.com/index.php?controller=order";
-	
 	By summaryProducts = By.id("summary_products_quantity");
 	
-	
-	
+	//URLS
+	//T-Shirts
+	String tShirtsUrl = "http://automationpractice.com/index.php?id_category=5&controller=category";
+	//Blouses
+	String blousesUrl = "http://automationpractice.com/index.php?id_category=7&controller=category";
+	//Casual Dresses
+	String casualDressesUlr = "http://automationpractice.com/index.php?id_category=9&controller=category";
+	//Evening Dresses
+	String eveningDressesUrl = "http://automationpractice.com/index.php?id_category=10&controller=category";
+	//Summer Dresses
+	String summerDressesUrl = "http://automationpractice.com/index.php?id_category=11&controller=category";
+	//Cart Url
+	String cartUrl = "http://automationpractice.com/index.php?controller=order";
 	
 	public Scenario(WebDriver driver) {
 		super(driver);
 	}
-	
-
 	
 	public void testPage() throws InterruptedException {
 		System.out.println(isBePresence(searchBox));
@@ -71,7 +66,7 @@ public class Scenario extends Base{
 			click(continueShoppingLocator);
 			//Adding the third product
 			click(itemToSelect2);
-			click(addToCartLocator);
+			click(addToCartLocator2);
 			isBePresence(continueShoppingLocator);
 			click(continueShoppingLocator);
 		}else {

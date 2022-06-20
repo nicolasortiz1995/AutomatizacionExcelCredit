@@ -51,7 +51,17 @@ public class Base {
 		try {
 			WebDriverWait waiter = new WebDriverWait(driver, Duration.ofSeconds(10));
 			//I use explicit wait, not implicit :D
-			waiter.until(ExpectedConditions.presenceOfElementLocated(locator));
+			waiter.until(ExpectedConditions.elementToBeClickable(locator));
+			return true;
+		}catch(org.openqa.selenium.NoSuchElementException e) {
+			return false;
+		}
+	}
+	public Boolean isNotPresence(By locator) {
+		try {
+			WebDriverWait waiter = new WebDriverWait(driver, Duration.ofSeconds(10));
+			//I use explicit wait, not implicit :D
+			waiter.until(ExpectedConditions.invisibilityOfElementLocated(locator));
 			return true;
 		}catch(org.openqa.selenium.NoSuchElementException e) {
 			return false;
