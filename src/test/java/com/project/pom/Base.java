@@ -1,6 +1,7 @@
 package com.project.pom;
 
 import java.util.List;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +18,7 @@ public class Base {
 		this.driver = driver;
 	}
 	public WebDriver chromeDriverConnection() {
-		System.setProperty("webdriver.chrome.driver",".src/test/resources/chromedriver/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","./src/test/resources/chromedriver/chromedriver.exe");
 		driver = new ChromeDriver();
 		return driver;
 	}
@@ -42,6 +43,16 @@ public class Base {
 	public Boolean isDisplayed (By locator) {
 		try {
 			return driver.findElement(locator).isDisplayed();
+		}catch(org.openqa.selenium.NoSuchElementException e) {
+			return false;
+		}
+	}
+	public Boolean isBePresence(By locator) {
+		try {
+			WebDriverWait waiter = new WebDriverWait(driver, Duration.ofSeconds(10));
+			//I use explicit wait, not implicit :D
+			waiter.until(ExpectedConditions.presenceOfElementLocated(locator));
+			return true;
 		}catch(org.openqa.selenium.NoSuchElementException e) {
 			return false;
 		}

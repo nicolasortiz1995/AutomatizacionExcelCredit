@@ -16,9 +16,8 @@ public class Scenario_Test {
 	public void setUp() throws Exception {
 		scenario = new Scenario(driver);
 		driver = scenario.chromeDriverConnection();
-		scenario.visit("http://automationpractice.com/index.php");
-		
-		
+		driver.manage().window().maximize();
+		scenario.visit("http://automationpractice.com/index.php");		
 	}
 
 	@After
