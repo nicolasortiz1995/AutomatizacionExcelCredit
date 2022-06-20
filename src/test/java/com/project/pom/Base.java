@@ -49,6 +49,4 @@ public class Base {
 	public void visit(String url) {
 		driver.get(url);
 	}
-	
-	
 }
