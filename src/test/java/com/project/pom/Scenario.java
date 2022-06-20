@@ -30,31 +30,39 @@ public class Scenario extends Base{
 	}
 	
 	public void testPage() {
-		//T-SHIRTS
-		visit(tShirtsUrl);
-		click(addToCartLocator);
-		click(continueShoppingLocator);
-		//BLOUSES
-		visit(blousesUrl);
-		click(addToCartLocator);
-		click(continueShoppingLocator);
-		//CASUAL DRESSES
-		visit(casualDressesUlr);
-		click(addToCartLocator);
-		click(continueShoppingLocator);
-		//EVENING DRESSES
-		visit(eveningDressesUrl);
-		click(addToCartLocator);
-		click(continueShoppingLocator);
-		//SUMMER DRESSES
-		visit(summerDressesUrl);
-		click(addToCartLocator);
-		click(continueShoppingLocator);
-		//Adding the third product
-		click(addToCartLocator2);
-		click(continueShoppingLocator);
-		getText(summaryProducts);
+		if(isDisplayed(addToCartLocator)) {
+			//T-SHIRTS
+			visit(tShirtsUrl);
+			click(addToCartLocator);
+			click(continueShoppingLocator);
+			//BLOUSES
+			visit(blousesUrl);
+			click(addToCartLocator);
+			click(continueShoppingLocator);
+			//CASUAL DRESSES
+			visit(casualDressesUlr);
+			click(addToCartLocator);
+			click(continueShoppingLocator);
+			//EVENING DRESSES
+			visit(eveningDressesUrl);
+			click(addToCartLocator);
+			click(continueShoppingLocator);
+			//SUMMER DRESSES
+			visit(summerDressesUrl);
+			click(addToCartLocator);
+			click(continueShoppingLocator);
+			//Adding the third product
+			click(addToCartLocator2);
+			click(continueShoppingLocator);
+		}else {
+			System.out.println("Add to cart buttom was not present");
+		}		
 		
+	}
+	
+	public String lastMessage() {
+		visit(cartUrl);
+		return getText(summaryProducts);
 	}
 	
 	
